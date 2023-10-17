@@ -20,3 +20,12 @@ class Node:
             return self.data
         else:
             return self.data + " " + self.next.to_string()
+
+    def insert(self, number, data):
+        if number == 1:
+            new_node = Node(data)
+            temp = self.next
+            self.next = new_node
+            new_node.next = temp
+        else:
+            self.next.insert(number - 1, data)
